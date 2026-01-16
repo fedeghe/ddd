@@ -1,0 +1,7 @@
+{
+    "EXE": [
+        "rm -rf dist/lib",
+        "mkdir -p dist/lib"
+    ],
+    "src/lib/index.js": "dist/lib"
+}

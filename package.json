@@ -13,6 +13,8 @@
     "malta-markdown-pdf": "^1.0.10"
   },
   "scripts": {
-    "book": "malta src/malta/book.json"
+    "book": "malta src/malta/book.json",
+    "code": "malta src/malta/code.json",
+    "build": "malta src/malta/require.json"
   }
 }

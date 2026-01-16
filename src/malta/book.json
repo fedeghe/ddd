@@ -3,5 +3,6 @@
         "rm -rf dist/book",
         "mkdir -p dist/book"
     ],
-    "src/book/index.md": "dist/book --plugins=malta-markdown-pdf[\"-s\":\"./style.css\"] --options=showPath:false,verbose:2"
+    "src/book/index.md": "dist/book --plugins=malta-markdown-pdf[\"-s\":\"./style.css\"] --options=showPath:false,verbose:2",
+    "src/README.md": "."
 }
