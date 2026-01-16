@@ -1,9 +1,6 @@
-
-
 ![Foo](https://raw.githubusercontent.com/fedeghe/malta/master/src/media/malta.png)
 
-# DDD
-
+# D D D 
 
 
 
@@ -37,6 +34,7 @@ But let's stop boring thing and let's dive in as quick as possible:
 <canvas id="myCanvas"></canvas>
 ```
 
+    hint: clearly we could have created and appended the canvas element programmatically
 
 
 ``` js

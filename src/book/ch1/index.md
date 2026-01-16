@@ -7,9 +7,10 @@ It provides a bitmap-based area on the browser allowing to draw programmatically
 
 But let's stop boring thing and let's dive in as quick as possible:
 ``` html
-$$ch1/src/0.html$$
+$$ch1/src/canvas.html$$
 ```
 
+    hint: clearly we could have created and appended the canvas element programmatically
 
 
 ``` js
