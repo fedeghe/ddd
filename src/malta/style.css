@@ -1,0 +1,11 @@
+hr {
+    page-break-after: always; visibility: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+    color: #6e1e1e;
+    background-color: #a9f9f9;
+}
