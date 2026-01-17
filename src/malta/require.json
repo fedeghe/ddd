@@ -1,4 +1,5 @@
 {
     "src/malta/book.json": true,
-    "src/malta/code.json": true
+    "src/malta/lib.json": true,
+    "src/malta/html.json": true
 }

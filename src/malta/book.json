@@ -1,8 +1,10 @@
 {
     "EXE": [
         "rm -rf dist/book",
-        "mkdir -p dist/book"
+        "mkdir -p dist/book",
+        "mkdir -p dist/book/ch1"
     ],
     "src/book/index.md": "dist/book --plugins=malta-markdown-pdf[\"-s\":\"./style.css\"] --options=showPath:false,verbose:2",
+
     "src/README.md": "."
 }
