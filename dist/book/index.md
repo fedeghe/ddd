@@ -93,3 +93,5 @@ var width = 800,
         y: height - y
     }); 
 ```
+
+![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system2.png)
