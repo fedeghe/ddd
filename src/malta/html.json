@@ -3,6 +3,6 @@
         "rm -rf dist/html",
         "mkdir -p dist/html/ch1"
     ],
-    "src/html/index.html": "dist/html/ --options=showPath:false",
-    "src/html/ch1/*.html": "dist/html/ch1"
+    "src/html/index.html": "dist/html/ -options=showPath:false",
+    "src/html/ch1/*.html": "dist/html/ch1 -options=showPath:false"
 }
