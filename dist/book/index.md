@@ -94,4 +94,4 @@ var width = 800,
     }); 
 ```
 
-![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system2.png)
+![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system3.png)
