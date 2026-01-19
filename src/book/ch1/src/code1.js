@@ -3,7 +3,7 @@ var FOREGROUND = "#FF0000",
     W = 600,
     H = 600,
     c = window.myCanvas, // or document.getElementByTagName("canvas")[0]
-                         // if we set no idattribute and there is only one canvas
+                         // if we set no id attribute and there is only one canvas
     ctx = c.getContext("2d");
 
 c.width = W;
