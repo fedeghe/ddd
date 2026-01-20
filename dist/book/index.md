@@ -112,3 +112,33 @@ but, I will NOT.
 I'll assume you know. The code will be there on the library for you to use (and check).
 
 So without further ado, let jump into the _perspective_ topic.
+
+
+# The engine
+
+## 2.1 The perspective
+
+![perspective](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/perspective.png)
+
+The perspective is a tecnique to represent on a plane a tridimensional object.  
+Lines that in 3D are parallel (usually apart vertical ones) meet in the 2D plane in a so called _vanishing-point_. Those vanishing points line on the same line, called _horizon_.  
+
+## 2.2 The coordinates transformations
+
+We will build models and move them, do all the math in 3D and each time we want to "see" it on our screen we will need to run:  
+
+1) a viewing transformation  
+    from World coordinates (x<sub>w</sub>, y<sub>w</sub>, z<sub>w</sub>) 
+    into Eye coordinates (x<sub>e</sub>, y<sub>e</sub>, z<sub>e</sub>)
+
+2) a perspective transformation  
+    from eye coordinates (x<sub>e</sub>, y<sub>e</sub>, z<sub>e</sub>)  
+    into screen coordinates (X, Y)
+
+### 2.2.1 the viewing transformation
+
+The first transformation we need to compute in the one that changes the coordinate system from the world into a coordinate system having its origin in the our eye (one for the moment), the point of view, or camera. I'll refer to that point with the E letter.
+
+![view transformation](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/transformation0.png)
+
+---
