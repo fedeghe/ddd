@@ -7,5 +7,5 @@
     "src/book/index.md": "dist/book --options=showPath:false,verbose:2",
 
     "src/README.md": ".",
-    "src/book/media/*": "dist/book/media"
+    "src/book/media/*.png": "dist/book/media"
 }
