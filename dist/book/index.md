@@ -15,7 +15,7 @@
 
 
 
-# Elementary concepts
+# Basic concepts
 
 ### 1.0: The Canvas  
 
@@ -62,36 +62,53 @@ draw(0, H, '#ddd');      draw(W/2, H, '#888');     draw(W, H, '#555');
 
 In _math_ almost all the numerical results will be similar to rational numbers (indeed a computer can only have finite decimal digits). The native methods available for us to draw on the canvas though accepts only integers; those parameters are exactly the coordinates of our points in the coordinates system of the canvas. This system has the origin in the top left of the screen, the x-axis is horizontal pointing toward the right and they-axis is vertical pointing toward the bottom.
 
-This means to draw a line we have to that this coordinate system into account
-
-```
-          A     B
-drawLine(6,2, 10,6).  // watch the canvas does NOT provide that, we will in out simple library
-```
-
 ![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system0.png)
 
-the truth is that to draw a line in the canvas we have to write something like:
+We need then to change the coordinate system into one we all feel more comfortable to draw in.
 
-``` js
-ctx.beginPath();   // Start a path
-ctx.moveTo(6, 2);  // Move to initial point
-ctx.lineTo(10, 6); // Draw a line to (10, 6)
-ctx.stroke();      // Render
-```
-
-but we can create out own `drawLine` function to do that.  
-Another more important thing is to change the coordinate system into one we all feel more comfortable to draw in.
-
-![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system1.png)
 
 ``` js 
 var width = 800,
     height = 600;
+    // we'll do that more properly with a matrix
+    // here we do that by hand
     renderable = ({x, y}) => ({
-        x: x - width/2,
-        y: height/2 - y
+        x: x - width/2,    // traslate
+        y: - y + height/2  // invert and traslate
     }); 
 ```
 
 ![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system3.png)
+
+---
+
+### 1.2: Before jumping the the rabbit's hole  
+
+At that point the book could take the annoying path of introducing all what is needed to dive directly into the engine:  
+- mapping modes  
+- basic algebra and applied geometry. 
+- 3 points orientation. 
+- area of a polygon
+- point in triangle test
+- point in polygon test
+- point on line test
+- point line distance
+- point on line projection
+- triangulation of a polygon
+- basic matrix theory:
+  - linear transformation
+  - inversions, translations, rotations
+  - homogeneous coordinates
+  - rotations
+  - change of base
+- some very classic algorithms:
+  - Beizer curves
+  - b-spline fitting
+  - Cohen-Sutherland line clipping
+  - Bresenham's Algorithm for line drawing
+  - Sutherland-Hodgman Polygon Clipping
+  
+but, I will NOT.  
+I'll assume you know. The code will be there on the library for you to use (and check).
+
+So without further ado, let jump into the _perspective_ topic.
