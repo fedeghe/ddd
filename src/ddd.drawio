@@ -410,6 +410,9 @@
         <mxCell id="6I9XsdmNA1uDKD7ZsWs_-138" parent="1" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;" value="" vertex="1">
           <mxGeometry height="50" width="50" x="610" y="-930" as="geometry" />
         </mxCell>
+        <mxCell id="6I9XsdmNA1uDKD7ZsWs_-139" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="&lt;span style=&quot;font-family: &amp;quot;Segoe UI&amp;quot;, -apple-system, Arial, Verdana, sans-serif; font-size: 24px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;ρ&lt;/span&gt;" vertex="1">
+          <mxGeometry height="41" width="32" x="204" y="-938" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

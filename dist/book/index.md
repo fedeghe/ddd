@@ -3,7 +3,6 @@
 # D D D 
 
 
-
 # contents
 
 - preface 
@@ -14,10 +13,9 @@
 
 
 
+# 1: Basic concepts
 
-# Basic concepts
-
-### 1.0: The Canvas  
+### 1.0 The Canvas  
 
 The `canvas` is an html5 tag introduced by  (no it's not a typo) in 2004 and then _quickly_ adopted and available in every browser as standard core feature (2008).  
 It provides a bitmap-based area on the browser allowing to draw programmatically shapes, graphics and more. This was the demise of macromedia Flash.  
@@ -58,11 +56,12 @@ draw(0, H, '#ddd');      draw(W/2, H, '#888');     draw(W, H, '#555');
 
 ---
 
-### 1.1: Coordinates and logical coordinates  
+### 1.1 Coordinates and logical coordinates  
 
 In _math_ almost all the numerical results will be similar to rational numbers (indeed a computer can only have finite decimal digits). The native methods available for us to draw on the canvas though accepts only integers; those parameters are exactly the coordinates of our points in the coordinates system of the canvas. This system has the origin in the top left of the screen, the x-axis is horizontal pointing toward the right and they-axis is vertical pointing toward the bottom.
 
-![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system0.png)
+![Foo](https://github.com/fedeghe/ddd/blob/master/dist/book/media/system0.png?raw=true)
+
 
 We need then to change the coordinate system into one we all feel more comfortable to draw in.
 
@@ -78,52 +77,30 @@ var width = 800,
     }); 
 ```
 
-![Foo](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/system3.png)
+![Foo](https://github.com/fedeghe/ddd/blob/master/dist/book/media/system3.png?raw=true)
 
 ---
 
-### 1.2: Before jumping the the rabbit's hole  
+### 1.2 Before jumping into the rabbit's hole  
 
-At that point the book could take the annoying path of introducing all what is needed to dive directly into the engine:  
-- mapping modes  
-- basic algebra and applied geometry. 
-- 3 points orientation. 
-- area of a polygon
-- point in triangle test
-- point in polygon test
-- point on line test
-- point line distance
-- point on line projection
-- triangulation of a polygon
-- basic matrix theory:
-  - linear transformation
-  - inversions, translations, rotations
-  - homogeneous coordinates
-  - rotations
-  - change of base
-- some very classic algorithms:
-  - Beizer curves
-  - b-spline fitting
-  - Cohen-Sutherland line clipping
-  - Bresenham's Algorithm for line drawing
-  - Sutherland-Hodgman Polygon Clipping
-  
-but, I will NOT.  
-I'll assume you know. The code will be there on the library for you to use (and check).
+At that point the book could take the annoying path of introducing all what is needed to dive directly into the engine.  
+A non exaustive list would at least contain a decent overview on mapping modes, basic algebra and applied geometry, 3 points orientation, area of a polygon, point in triangle test, point in polygon test, point on line test, point line distance, point on line projection, triangulation of a polygon, basic matrix theory (linear transformation and their composition, inversions, translations, rotations, homogeneous coordinates, change of base), some very classic algorithms (Beizer curves, b-spline fitting, Cohen-Sutherland line clipping, Bresenham's Algorithm for line drawing, Sutherland-Hodgman Polygon Clipping). You knot that sense when you prepare the luggare for a journeyaand you are sure you forgot something? That's me here now! Not a big deal anyway since "All chickens come home to roost" right? Absolutely yes
+    
+I'll assume you know or you are motivated enough to read quickly about it and get familiar with those topics, AI wont help you.
 
-So without further ado, let jump into the _perspective_ topic.
+So without further ado, let's jump into the _perspective_ topic.
 
 
-# The engine
+# 2 The rabbit hole
 
-## 2.1 The perspective
+## 2.0 The perspective
 
-![perspective](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/perspective.png)
+![perspective](https://github.com/fedeghe/ddd/blob/master/dist/book/media/perspective.png?raw=true)
 
 The perspective is a tecnique to represent on a plane a tridimensional object.  
 Lines that in 3D are parallel (usually apart vertical ones) meet in the 2D plane in a so called _vanishing-point_. Those vanishing points line on the same line, called _horizon_.  
 
-## 2.2 The coordinates transformations
+## 2.1 The coordinates transformations
 
 We will build models and move them, do all the math in 3D and each time we want to "see" it on our screen we will need to run:  
 
@@ -135,10 +112,12 @@ We will build models and move them, do all the math in 3D and each time we want 
     from eye coordinates (x<sub>e</sub>, y<sub>e</sub>, z<sub>e</sub>)  
     into screen coordinates (X, Y)
 
-### 2.2.1 the viewing transformation
+#### 2.1.1 the viewing transformation
 
 The first transformation we need to compute in the one that changes the coordinate system from the world into a coordinate system having its origin in the our eye (one for the moment), the point of view, or camera. I'll refer to that point with the E letter.
 
-![view transformation](https://raw.githubusercontent.com/fedeghe/ddd/master/dist/book/media/transformation0.png)
+![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation0.png?raw=true)
+
+On the left you can see the world coordinate system, it will likely contain something we want to render in 2D, for the moment let's assume it is just a cube. Another very important element is the observer, our eye.
 
 ---
