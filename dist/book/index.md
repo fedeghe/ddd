@@ -93,6 +93,8 @@ So without further ado, let's jump into the _perspective_ topic.
 
 # 2 The rabbit hole
 
+
+
 ## 2.0 The perspective
 
 ![perspective](https://github.com/fedeghe/ddd/blob/master/dist/book/media/perspective.png?raw=true)
@@ -118,6 +120,25 @@ The first transformation we need to compute in the one that changes the coordina
 
 ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation0.png?raw=true)
 
-On the left you can see the world coordinate system, it will likely contain something we want to render in 2D, for the moment let's assume it is just a cube. Another very important element is the observer, our eye.
+On the left you can see our scene in the world's coordinate system. The scene it will contain everything we want to render in 2D. Another very important element is the observer, our eye.
+On the right you can see the scene in the eye's coordinate system, once we'll get there we will be really close to know how our scene relevant simple data might appear in 2D.
+
+The viewing transformation can simply be composed by:
+
+- **a translation**: move the origin from O<sub>w</sub> to E
+  
+![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation1.png?raw=true)
+
+- **a rotation**: around the z-axis
+
+![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation2.png?raw=true)  
+
+- **another rotation**: around the x-axis
+
+now we can proceed with the last step toward our set of `{x, y} ∈ ℤ2` (screen bounded).
+
+#### 2.1.2 the perspective transformation
+
+
 
 ---
