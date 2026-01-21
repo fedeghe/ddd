@@ -120,14 +120,14 @@ The first transformation we need to compute in the one that changes the coordina
 
 ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation0.png?raw=true)
 
-On the left you can see our scene in the world's coordinate system. The scene it will contain everything we want to render in 2D. Another very important element is the observer, our eye.
-On the right you can see the scene in the eye's coordinate system, once we'll get there we will be really close to know how our scene relevant simple data might appear in 2D.
+On the **left** you can see our scene in the **world's coordinate system**. The scene it will contain everything we want to render in 2D. Another very important element is the observer, our eye.  
+On the **right** you can see the scene in the **eye's coordinate system**, once we'll get there we will be really close to know how our scene relevant simple data might appear in 2D.
 
 The viewing transformation can simply be composed by:
 
 - **a translation**: move the origin from O<sub>w</sub> to E
   
-![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation1.png?raw=true)
+    ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation1.png?raw=true)
 
 $$\mathbf{T} = \begin{vmatrix}
 1 & 0 & 0 & 0 \\
@@ -136,21 +136,25 @@ $$\mathbf{T} = \begin{vmatrix}
 -x_{e} & -y_{e} & -z_{e} & 1 \\
 \end{vmatrix}$$
 
+
+
 - **a rotation**: around the z-axis
 
-![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation2.png?raw=true)  
+    $$\mathbf{R_{z}} = \begin{vmatrix}
+    cos(-\theta-90\degree) & sin(-\theta-90\degree) & 0 & 0 \\
+    -sin(-\theta-90\degree) & cos(-\theta-90\degree) & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{vmatrix} = \begin{vmatrix}
+    -sin \theta  & -cos \theta  & 0 & 0 \\
+    cos \theta & -sin \theta & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{vmatrix}$$
 
-$$\mathbf{R_{z}} = \begin{vmatrix}
-cos(-\theta-90\degree) & sin(-\theta-90\degree) & 0 & 0 \\
--sin(-\theta-90\degree) & cos(-\theta-90\degree) & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
-\end{vmatrix} = \begin{vmatrix}
--sin \theta  & -cos \theta  & 0 & 0 \\
-cos \theta & -sin \theta & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
-\end{vmatrix}$$
+    ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation2.png?raw=true)  
+
+
 
 - **another rotation**: around the x-axis
 
@@ -185,8 +189,36 @@ now we can proceed with the last step toward our set of `{x, y} ∈ ℤ2` (scree
 
 #### 2.1.2 the perspective transformation
 
+Now we are really close to the final result
 
+![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation3.png?raw=true)
 
+The screen is the plane $z=-d$. The screen coordinate system has Q as origin.  
 
+For every single point P our eye is looking at we can see the image P' in the screen as just the intersection of the plane $z=-d$ and the segment $PE$.  
+
+It's immediate to see that. 
+
+$$
+\frac{P'Q}{EQ} = \frac{PR}{ER}
+$$
+
+thus also
+
+$$
+\frac{x'}{d} = \frac{x}{-z}
+$$
+
+and finally  
+
+$$
+X=-d\frac{x}{z} 
+$$
+
+and for the exact same reason
+
+$$
+Y=-d\frac{y}{z} 
+$$
 
 ---
