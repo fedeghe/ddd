@@ -129,15 +129,63 @@ The viewing transformation can simply be composed by:
   
 ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation1.png?raw=true)
 
+$$\mathbf{T} = \begin{vmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+-x_{e} & -y_{e} & -z_{e} & 1 \\
+\end{vmatrix}$$
+
 - **a rotation**: around the z-axis
 
 ![view transformation](https://github.com/fedeghe/ddd/blob/master/dist/book/media/transformation2.png?raw=true)  
 
+$$\mathbf{R_{z}} = \begin{vmatrix}
+cos(-\theta-90\degree) & sin(-\theta-90\degree) & 0 & 0 \\
+-sin(-\theta-90\degree) & cos(-\theta-90\degree) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{vmatrix} = \begin{vmatrix}
+-sin \theta  & -cos \theta  & 0 & 0 \\
+cos \theta & -sin \theta & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{vmatrix}$$
+
 - **another rotation**: around the x-axis
+
+$$\mathbf{R_{x}} = \begin{vmatrix}
+1 & 0 & 0 & 0 \\
+0 & cos(-\phi) & sin(-\phi) & 0 \\
+0 & -sin(-\phi) & cos(-\phi) & 0 \\
+0 & 0 & 0 & 1 \\
+\end{vmatrix} = \begin{vmatrix}
+1 & 0 & 0 & 0 \\
+0 & cos \phi & -sin \phi & 0 \\
+0 & sin \phi & cos \phi & 0 \\
+0 & 0 & 0 & 1 \\
+\end{vmatrix}$$
+
+and now it should be clear we got to the eye's coordinate system, we Just need to combine everything to get:
+
+$$\mathbf{V} = \mathbf{T} \mathbf{R_{z}} \mathbf{R_{x}} = \begin{vmatrix}
+-sin \theta & -cos \phi cos \theta & sin \phi cos \theta  & 0 \\
+cos \theta & -cos \phi sin \theta & sin \phi sin \theta & 0 \\
+0 & sin \phi & cos \phi & 0 \\
+0 & 0 & -\rho & 1 \\
+\end{vmatrix}$$
+
+thus finally 
+
+$$
+[x_{e}, y_{e}, z_{e} ,1] = [x_{w}, y_{w}, z_{w}, 1]  \mathbf{V}
+$$
 
 now we can proceed with the last step toward our set of `{x, y} ∈ ℤ2` (screen bounded).
 
 #### 2.1.2 the perspective transformation
+
+
 
 
 
